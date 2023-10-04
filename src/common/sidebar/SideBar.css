@@ -1,3 +1,6 @@
+.sidebar{
+    margin-top: 3.5rem;
+}
 ul{
     display: flex;
     flex-direction: column;

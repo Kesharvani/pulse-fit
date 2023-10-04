@@ -10,7 +10,7 @@ export default function SideBar() {
     };
   };
   return (
-    <nav>
+    <nav className="sidebar">
       <ul>
         <li>
           <NavLink to="/" style={colorObject}>
