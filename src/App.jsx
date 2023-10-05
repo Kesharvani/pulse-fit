@@ -1,3 +1,4 @@
+import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/dashboard/Dashboard";
 import ExerciseTracking from "./pages/exercise/ExerciseTracking";
@@ -6,7 +7,7 @@ import GoalTracking from "./pages/goal/GoalTracking";
 import SideBar from "./common/sidebar/SideBar";
 const App = () => {
   return (
-    <div>
+    <div className="screen_container">
       <SideBar></SideBar>
       <Routes>
         <Route path="/" element={<Dashboard />} />
