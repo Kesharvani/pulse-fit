@@ -14,7 +14,7 @@ export default function GoalTracking() {
     goalDescription: "",
     targetDate: "",
     targetCalories: "",
-    status: "",
+    status: "In Progress",
   });
 
   const inputGoalHandler = (e) => {
@@ -36,11 +36,6 @@ export default function GoalTracking() {
 
   function openModal() {
     setIsOpen(true);
-  }
-
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
   }
 
   function closeModal() {
@@ -69,7 +64,7 @@ export default function GoalTracking() {
       goalDescription: "",
       targetDate: "",
       targetCalories: "",
-      status: "",
+      status: "In Progress",
     });
     closeModal();
   };
@@ -82,10 +77,10 @@ export default function GoalTracking() {
         </button>
         <Modal
           isOpen={modalIsOpen}
-          onAfterOpen={afterOpenModal}
           onRequestClose={closeModal}
           style={customStyles}
           contentLabel="Goal Modal"
+          ariaHideApp={false}
         >
           <AiOutlineClose
             size={32}

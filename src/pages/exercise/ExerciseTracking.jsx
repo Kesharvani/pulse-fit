@@ -36,11 +36,6 @@ export default function ExerciseTracking() {
     setIsOpen(true);
   }
 
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
-  }
-
   function closeModal() {
     setIsOpen(false);
   }
@@ -64,10 +59,10 @@ export default function ExerciseTracking() {
         </button>
         <Modal
           isOpen={modalIsOpen}
-          onAfterOpen={afterOpenModal}
           onRequestClose={closeModal}
           style={customStyles}
           contentLabel="Exercise Modal"
+          ariaHideApp={false}
         >
           <AiOutlineClose
             size={32}
