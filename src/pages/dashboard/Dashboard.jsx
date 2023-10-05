@@ -25,21 +25,21 @@ export default function Dashboard() {
       <div className="card_container">
         <div className="card">
           <div className="heading">
-            <h3>Exercise</h3>
+            <h3>Latest Exercise</h3>
             <hr />
           </div>
           <div></div>
         </div>
         <div className="card">
           <div className="heading_food">
-            <h3>Food</h3>
+            <h3>Latest Food</h3>
             <hr />
           </div>
           <div></div>
         </div>
         <div className="card">
           <div className="heading_goal">
-            <h3>Goal</h3>
+            <h3>Latest Goal</h3>
             <hr />
           </div>
           <div></div>
