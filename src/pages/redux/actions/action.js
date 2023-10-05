@@ -53,3 +53,46 @@ export const postFoodActionCreator = (foodData) => async (dispatch) => {
     console.error("Error while feeding food data:", error);
   }
 };
+
+export const postGoalActionCreator = (goalData) => async (dispatch) => {
+  try {
+    const feedGoalData = await fetch(
+      "https://assignment17fitnesstracker.allahabad.repl.co/api/goals",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(goalData),
+      }
+    );
+    const feedGoalDataObject = await feedGoalData.json();
+
+    dispatch({ type: "ADD_GOAL", payload: feedGoalDataObject.goal });
+  } catch (error) {
+    console.error("Error while feeding food data:", error);
+  }
+};
+
+export const postExerciseActionCreator = (exerciseData) => async (dispatch) => {
+  try {
+    const feedExerciseData = await fetch(
+      "https://assignment17fitnesstracker.allahabad.repl.co/api/exercises",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(exerciseData),
+      }
+    );
+    const feedExerciseDataObject = await feedExerciseData.json();
+
+    dispatch({
+      type: "ADD_EXCERCISE",
+      payload: feedExerciseDataObject.exercise,
+    });
+  } catch (error) {
+    console.error("Error while feeding food data:", error);
+  }
+};
