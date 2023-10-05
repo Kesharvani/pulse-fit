@@ -28,6 +28,16 @@ export default function Dashboard() {
     );
     return `${day} ${month.toUpperCase()}`;
   };
+
+  const caloriesGoal = goal?.reduce(
+    (acc, curr) => acc + curr?.targetCalories,
+    0
+  );
+  const caloriesConsumed = food?.reduce((acc, curr) => acc + curr?.calories, 0);
+  const caloriesBurned = exercise?.reduce(
+    (acc, curr) => acc + curr?.caloriesBurned,
+    0
+  );
   useEffect(() => {
     dispatch(fetchExerciseActionCreator());
     dispatch(fetchFoodActionCreator());
@@ -77,10 +87,13 @@ export default function Dashboard() {
         </div>
       </div>
       <div className="fitness_summary">
-        <h4>Total Calories Burned:{45}</h4>
-        <h4>Total Calories Consumed:{45}</h4>
-        <h4>Total Calories Goal:{45}</h4>
-        <h4>Remaining Calories to Goal:{45}</h4>
+        <h4>Total Calories Burned:{caloriesBurned}</h4>
+        <h4>Total Calories Consumed:{caloriesConsumed}</h4>
+        <h4>Total Calories Goal:{caloriesGoal}</h4>
+        <h4>
+          Remaining Calories to Goal:
+          {caloriesGoal - (caloriesConsumed + caloriesBurned)}
+        </h4>
       </div>
     </div>
   );
