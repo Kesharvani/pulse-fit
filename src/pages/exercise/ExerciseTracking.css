@@ -64,13 +64,13 @@ button[type="submit"]:hover {
     position: absolute;
     cursor: pointer;
 }
-.exercise_modal{
+.exercise_modal_btn{
     background-color: #007bff;
     padding: 0.5rem;
     border-radius: 0.3rem;
     border: 1px solid black;
 }
-.exercise_modal:hover{
+.exercise_modal_btn:hover{
    background-color: #0056b3;
    cursor: pointer;
 }

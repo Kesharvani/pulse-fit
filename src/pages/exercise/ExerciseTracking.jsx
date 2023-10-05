@@ -59,7 +59,7 @@ export default function ExerciseTracking() {
   return (
     <div className="exercise_container">
       <div>
-        <button onClick={openModal} className="exercise_modal">
+        <button onClick={openModal} className="exercise_modal_btn">
           Add Exercise
         </button>
         <Modal
