@@ -1,0 +1,58 @@
+/* Style the container */
+.container {
+    max-width: 50rem;
+    margin: 3.5rem auto;
+    padding: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 0.4rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+.container>h2{
+    color: black;
+    text-align: center;
+    margin-top: 0px;
+}
+/* Style the form */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style form groups (label + input) */
+.form-group {
+    margin-bottom: 15px;
+    margin-right: 22px;
+}
+
+label {
+    font-weight: bold;
+    color: black;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+    background-color: #333; /* Dark background for text inputs */
+    color: white; /* Text color for text inputs */
+}
+
+/* Style the submit button */
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Hover effect on the submit button */
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
