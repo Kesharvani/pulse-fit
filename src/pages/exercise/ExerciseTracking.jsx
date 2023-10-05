@@ -118,11 +118,15 @@ export default function ExerciseTracking() {
       <div className="exercise_card_container">
         {exercise?.map((exercise) => {
           return (
-            <div className="exercise_card">
+            <div className="exercise_card" key={exercise?._id}>
               <div className="heading">
                 <h3>Exercise</h3>
               </div>
-              <div></div>
+              <div className="exercise_latest_data_container">
+                <span>Exercise Name:{exercise?.exerciseName}</span>
+                <span>Duration:{exercise?.duration}</span>
+                <span>Calories Burned:{exercise?.caloriesBurned}</span>
+              </div>
             </div>
           );
         })}

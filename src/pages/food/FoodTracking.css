@@ -90,3 +90,12 @@ button[type="submit"]:hover {
     background-color: #f9f9f9;
     color: black;
 }
+.food_latest_data_container{
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}

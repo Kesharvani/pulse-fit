@@ -46,6 +46,21 @@ export default function GoalTracking() {
   function closeModal() {
     setIsOpen(false);
   }
+  // date formater
+  const helperDateFormateConverter = (inputDate) => {
+    if (!inputDate) {
+      return "";
+    }
+    const date = new Date(inputDate);
+
+    const day = date.getDate();
+    const month = new Intl.DateTimeFormat("en-US", { month: "short" }).format(
+      date
+    );
+
+    return `${day} ${month.toUpperCase()}`;
+  };
+
   const goalSubmitHandler = (e) => {
     e.preventDefault();
     dispatch(postGoalActionCreator(goalFormObject));
@@ -145,11 +160,19 @@ export default function GoalTracking() {
       <div className="goal_card_container">
         {goal?.map((goal) => {
           return (
-            <div className="goal_card">
+            <div className="goal_card" key={goal?._id}>
               <div className="heading">
                 <h3>Goal</h3>
               </div>
-              <div></div>
+              <div className="goal_latest_data_container">
+                <span>Goal Name:{goal?.goalName}</span>
+                <span>
+                  Target Date:
+                  {helperDateFormateConverter(goal?.targetDate)}
+                </span>
+                <span>Target Calories:{goal?.targetCalories}</span>
+                <span>Status:{goal?.status}</span>
+              </div>
             </div>
           );
         })}

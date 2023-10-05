@@ -140,11 +140,17 @@ export default function FoodTracking() {
       <div className="food_card_container">
         {food?.map((food) => {
           return (
-            <div className="food_card">
+            <div className="food_card" key={food?._id}>
               <div className="heading">
                 <h3>Food</h3>
               </div>
-              <div></div>
+              <div className="food_latest_data_container">
+                <span>Food Name:{food?.foodName}</span>
+                <span>Calories:{food?.calories}</span>
+                <span>Protein:{food?.protein}</span>
+                <span>Carbohydrates:{food?.carbohydrates}</span>
+                <span>Fat:{food?.fat}</span>
+              </div>
             </div>
           );
         })}

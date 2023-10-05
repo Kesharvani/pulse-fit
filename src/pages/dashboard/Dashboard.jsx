@@ -8,13 +8,27 @@ import {
 } from "../redux/actions/action";
 
 export default function Dashboard() {
+  // fetch the current state from global state
   const exercise = useSelector((state) => state.exercise);
   const food = useSelector((state) => state.food);
   const goal = useSelector((state) => state.goal);
   const dispatch = useDispatch();
-
+  // find the latest updated value from user
+  const latestExercise = exercise[exercise.length - 1];
+  const latestFood = food[food.length - 1];
+  const latestGoal = goal[goal.length - 1];
+  const helperDateFormateConverter = (inputDate) => {
+    if (!inputDate) {
+      return "";
+    }
+    const date = new Date(inputDate);
+    const day = date.getDate();
+    const month = new Intl.DateTimeFormat("en-US", { month: "short" }).format(
+      date
+    );
+    return `${day} ${month.toUpperCase()}`;
+  };
   useEffect(() => {
-    console.log("dashboard useEffect is called");
     dispatch(fetchExerciseActionCreator());
     dispatch(fetchFoodActionCreator());
     dispatch(fetchGoalActionCreator());
@@ -28,21 +42,38 @@ export default function Dashboard() {
             <h3>Latest Exercise</h3>
             <hr />
           </div>
-          <div></div>
+          <div className="exercise_latest_data_container">
+            <span>Exercise Name:{latestExercise?.exerciseName}</span>
+            <span>Duration:{latestExercise?.duration}</span>
+            <span>Calories Burned:{latestExercise?.caloriesBurned}</span>
+          </div>
         </div>
         <div className="card">
           <div className="heading_food">
             <h3>Latest Food</h3>
             <hr />
           </div>
-          <div></div>
+          <div className="food_latest_data_container">
+            <span>Food Name:{latestFood?.foodName}</span>
+            <span>Calories:{latestFood?.calories}</span>
+            <span>Protein:{latestFood?.protein}</span>
+            <span>Carbohydrates:{latestFood?.carbohydrates}</span>
+            <span>Fat:{latestFood?.fat}</span>
+          </div>
         </div>
         <div className="card">
           <div className="heading_goal">
             <h3>Latest Goal</h3>
             <hr />
           </div>
-          <div></div>
+          <div className="goal_latest_data_container">
+            <span>Goal Name:{latestGoal?.goalName}</span>
+            <span>
+              Target Date:{helperDateFormateConverter(latestGoal?.targetDate)}
+            </span>
+            <span>Target Calories:{latestGoal?.targetCalories}</span>
+            <span>Status:{latestGoal?.status}</span>
+          </div>
         </div>
       </div>
       <div className="fitness_summary">

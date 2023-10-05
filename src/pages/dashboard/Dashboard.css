@@ -52,3 +52,31 @@ h4{
     flex-direction: column;
     gap: 2rem;
 }
+.exercise_latest_data_container{
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    align-items: center;
+}
+.food_latest_data_container{
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+.goal_latest_data_container{
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    align-items: center;
+}
+span{
+    font-weight: 500;
+}
