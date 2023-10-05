@@ -1,9 +1,24 @@
 import "./Dashboard.css";
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  fetchExerciseActionCreator,
+  fetchFoodActionCreator,
+  fetchGoalActionCreator,
+} from "../redux/actions/action";
+
 export default function Dashboard() {
-  const data = useSelector((state) => state.food);
-  console.log(data);
+  const exercise = useSelector((state) => state.exercise);
+  const food = useSelector((state) => state.food);
+  const goal = useSelector((state) => state.goal);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log("dashboard useEffect is called");
+    dispatch(fetchExerciseActionCreator());
+    dispatch(fetchFoodActionCreator());
+    dispatch(fetchGoalActionCreator());
+  }, [dispatch]);
   return (
     <div className="dashboard_container">
       <h2>Summary</h2>

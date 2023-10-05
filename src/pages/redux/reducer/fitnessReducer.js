@@ -8,14 +8,17 @@ const fitnessReducer = (state = initialValue, action) => {
     case "FETCH_EXCERCISE":
       return {
         ...state,
+        exercise: [...action.payload],
       };
     case "FETCH_GOAL":
       return {
         ...state,
+        goal: [...action.payload],
       };
     case "FETCH_FOOD":
       return {
         ...state,
+        food: [...action.payload],
       };
     case "ADD_EXCERCISE":
       return {
