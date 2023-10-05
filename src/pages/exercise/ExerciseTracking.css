@@ -8,8 +8,9 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
 }
+
 .container>h2{
-    color: black;
+    color: white;
     text-align: center;
     margin-top: 0px;
 }
@@ -27,7 +28,7 @@ form {
 
 label {
     font-weight: bold;
-    color: black;
+    color: white;
 }
 
 input[type="text"],
@@ -37,7 +38,7 @@ input[type="number"] {
     border: 1px solid #ccc;
     border-radius: 3px;
     font-size: 16px;
-    background-color: #333; /* Dark background for text inputs */
+    background-color: #565656; /* Dark background for text inputs */
     color: white; /* Text color for text inputs */
 }
 
@@ -55,4 +56,48 @@ button[type="submit"] {
 /* Hover effect on the submit button */
 button[type="submit"]:hover {
     background-color: #0056b3;
+}
+
+.close_icon{
+    color: white;
+    right: 1rem;
+    position: absolute;
+    cursor: pointer;
+}
+.exercise_modal{
+    background-color: #007bff;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    border: 1px solid black;
+}
+.exercise_modal:hover{
+   background-color: #0056b3;
+   cursor: pointer;
+}
+.exercise_container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    width: 100%;
+}
+.exercise_card_container{
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.exercise_card{
+    width: 300px;
+    height: 240px;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.4rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    color: black;
 }
