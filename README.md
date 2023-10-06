@@ -4,6 +4,7 @@ Dashboard page with a list of latest data
 Exercise Page to add the exercises
 Food Page to add the food items and calories related to it
 Goal Page to add the daily goal
+
 Technologies: 
 HTML
 CSS 3
