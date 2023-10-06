@@ -1,6 +1,9 @@
 import "./GoalTracking.css";
 import React, { useState } from "react";
-import { postGoalActionCreator } from "../redux/actions/action";
+import {
+  postGoalActionCreator,
+  deleteGoalActionCreator,
+} from "../redux/actions/action";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "react-modal";
 import { AiOutlineClose } from "react-icons/ai";
@@ -69,6 +72,9 @@ export default function GoalTracking() {
     closeModal();
   };
 
+  const deleteGoalHandler = (goal) => {
+    dispatch(deleteGoalActionCreator(goal));
+  };
   return (
     <div className="goal_container">
       <div>
@@ -158,6 +164,7 @@ export default function GoalTracking() {
             <div className="goal_card" key={goal?._id}>
               <div className="heading">
                 <h3>Goal</h3>
+                <button onClick={() => deleteGoalHandler(goal)}>Delete</button>
               </div>
               <div className="goal_latest_data_container">
                 <span>Goal Name:{goal?.goalName}</span>

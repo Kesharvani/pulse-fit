@@ -70,7 +70,7 @@ export const postGoalActionCreator = (goalData) => async (dispatch) => {
 
     dispatch({ type: "ADD_GOAL", payload: feedGoalDataObject.goal });
   } catch (error) {
-    console.error("Error while feeding food data:", error);
+    console.error("Error while feeding goal data:", error);
   }
 };
 
@@ -93,14 +93,14 @@ export const postExerciseActionCreator = (exerciseData) => async (dispatch) => {
       payload: feedExerciseDataObject.exercise,
     });
   } catch (error) {
-    console.error("Error while feeding food data:", error);
+    console.error("Error while feeding exercise data:", error);
   }
 };
 
-export const deleteExerciseActionCreator = (exerciseId) => async (dispatch) => {
+export const deleteExerciseActionCreator = (exercise) => async (dispatch) => {
   try {
     const feedExerciseData = await fetch(
-      `https://assignment17fitnesstracker.allahabad.repl.co/api/exercises/${exerciseId}`,
+      `https://assignment17fitnesstracker.allahabad.repl.co/api/exercises/${exercise?._id}`,
       {
         method: "DELETE",
         headers: {
@@ -115,14 +115,14 @@ export const deleteExerciseActionCreator = (exerciseId) => async (dispatch) => {
       payload: feedExerciseDataObject.exercise,
     });
   } catch (error) {
-    console.error("Error while feeding food data:", error);
+    console.error("Error while deleting exercise data:", error);
   }
 };
 
-export const deleteGoalActionCreator = (goalId) => async (dispatch) => {
+export const deleteGoalActionCreator = (goal) => async (dispatch) => {
   try {
     const feedGoalData = await fetch(
-      `https://assignment17fitnesstracker.allahabad.repl.co/api/goals/${goalId}`,
+      `https://assignment17fitnesstracker.allahabad.repl.co/api/goals/${goal?._id}`,
       {
         method: "DELETE",
         headers: {
@@ -134,14 +134,14 @@ export const deleteGoalActionCreator = (goalId) => async (dispatch) => {
 
     dispatch({ type: "REMOVE_GOAL", payload: feedGoalDataObject.goal });
   } catch (error) {
-    console.error("Error while feeding food data:", error);
+    console.error("Error while deleting goal data:", error);
   }
 };
 
-export const deleteFoodActionCreator = (foodId) => async (dispatch) => {
+export const deleteFoodActionCreator = (food) => async (dispatch) => {
   try {
     const feedFoodData = await fetch(
-      `https://assignment17fitnesstracker.allahabad.repl.co/api/food/${foodId}`,
+      `https://assignment17fitnesstracker.allahabad.repl.co/api/food/${food?._id}`,
       {
         method: "DELETE",
         headers: {
@@ -153,6 +153,6 @@ export const deleteFoodActionCreator = (foodId) => async (dispatch) => {
 
     dispatch({ type: "REMOVE_FOOD", payload: feedFoodDataObject.food });
   } catch (error) {
-    console.error("Error while feeding food data:", error);
+    console.error("Error while deleting food data:", error);
   }
 };

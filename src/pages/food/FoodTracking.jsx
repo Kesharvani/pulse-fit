@@ -1,7 +1,10 @@
 import "./FoodTracking.css";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { postFoodActionCreator } from "../redux/actions/action";
+import {
+  postFoodActionCreator,
+  deleteFoodActionCreator,
+} from "../redux/actions/action";
 import Modal from "react-modal";
 import { AiOutlineClose } from "react-icons/ai";
 export default function FoodTracking() {
@@ -50,6 +53,10 @@ export default function FoodTracking() {
       fat: "",
     });
     closeModal();
+  };
+
+  const deleteFoodHandler = (food) => {
+    dispatch(deleteFoodActionCreator(food));
   };
   return (
     <div className="food_container">
@@ -138,6 +145,7 @@ export default function FoodTracking() {
             <div className="food_card" key={food?._id}>
               <div className="heading">
                 <h3>Food</h3>
+                <button onClick={() => deleteFoodHandler(food)}>Delete</button>
               </div>
               <div className="food_latest_data_container">
                 <span>Food Name:{food?.foodName}</span>

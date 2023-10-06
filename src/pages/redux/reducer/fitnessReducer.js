@@ -38,14 +38,19 @@ const fitnessReducer = (state = initialValue, action) => {
     case "REMOVE_EXERCISE":
       return {
         ...state,
+        exercise: state.exercise?.filter(
+          (item) => item?._id !== action.payload?._id
+        ),
       };
     case "REMOVE_GOAL":
       return {
         ...state,
+        goal: state.goal?.filter((item) => item._id !== action.payload?._id),
       };
     case "REMOVE_FOOD":
       return {
         ...state,
+        food: state.food?.filter((item) => item?._id !== action.payload?._id),
       };
     default:
       return { ...state };

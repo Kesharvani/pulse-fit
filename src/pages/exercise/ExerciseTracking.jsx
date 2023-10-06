@@ -1,6 +1,9 @@
 import "./ExerciseTracking.css";
 import React, { useState } from "react";
-import { postExerciseActionCreator } from "../redux/actions/action";
+import {
+  postExerciseActionCreator,
+  deleteExerciseActionCreator,
+} from "../redux/actions/action";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "react-modal";
 import { AiOutlineClose } from "react-icons/ai";
@@ -50,6 +53,10 @@ export default function ExerciseTracking() {
       caloriesBurned: "",
     });
     closeModal();
+  };
+
+  const exerciseDeleteHandler = (exercise) => {
+    dispatch(deleteExerciseActionCreator(exercise));
   };
   return (
     <div className="exercise_container">
@@ -116,6 +123,9 @@ export default function ExerciseTracking() {
             <div className="exercise_card" key={exercise?._id}>
               <div className="heading">
                 <h3>Exercise</h3>
+                <button onClick={() => exerciseDeleteHandler(exercise)}>
+                  Delete
+                </button>
               </div>
               <div className="exercise_latest_data_container">
                 <span>Exercise Name:{exercise?.exerciseName}</span>
